@@ -48,7 +48,7 @@
                 Grid.Row="2"
                 Grid.Column="0"/>
 
-            <ProgressBar x:Name="comida"
+            <ProgressBar x:Name="fome"
                          ProgressColor="#0dafb5"
                          Progress="0.4"
                         Grid.Row="0"
