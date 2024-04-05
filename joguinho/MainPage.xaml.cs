@@ -12,12 +12,13 @@ public partial class MainPage : ContentPage
         sofie = new Sofie();
         triel = new Triel();
         atual = lin;
-         programa.Source = atual.GetArquivo();
+        programa.Source = atual.GetArquivo();
+        AtualizaPersonagem();
 
          var timer = Application.Current.Dispatcher.CreateTimer();
-    timer.Interval = TimeSpan.FromSeconds(3);
-    timer.Tick += (s,e) => PassouTempo();
-    timer.Start();
+        timer.Interval = TimeSpan.FromSeconds(1);
+        timer.Tick += (s,e) => PassouTempo();
+        timer.Start();
     }
 
     //----------
@@ -33,13 +34,19 @@ public partial class MainPage : ContentPage
 
      void PassouTempo()
      {
-        atual.SetFome(atual.GetFome()-0.1);
-        fome.Progress = atual.GetFome();
-        atual.SetSede(atual.GetSede()-0.1);
-        sede.Progress = atual.GetSede();
-        atual.SetCarinho(atual.GetCarinho()-0.1);
-        carinho.Progress = atual.GetCarinho();
-        
+       lin.SetFome(lin.GetFome()-0.02);
+       lin.SetSede(lin.GetSede()-0.02);
+       lin.SetCarinho(lin.GetCarinho()-0.02);
+
+       sofie.SetFome(sofie.GetFome()-0.02);
+       sofie.SetSede(sofie.GetSede()-0.02);
+       sofie.SetCarinho(sofie.GetCarinho()-0.02);
+
+       triel.SetFome(triel.GetFome()-0.02);
+       triel.SetSede(triel.GetSede()-0.02);
+       triel.SetCarinho(triel.GetCarinho()-0.02);
+
+        AtualizaPersonagem();
      }
 
     void aflecha(object sender,EventArgs args)
@@ -51,24 +58,24 @@ public partial class MainPage : ContentPage
         else if (atual == triel)
             atual = lin;
         programa.Source = atual.GetArquivo();
-        carinho.Progress = atual.GetCarinho();
+        AtualizaPersonagem();
     }
 
     void ocarinho(object sender,EventArgs args)
     {
-        atual.SetCarinho(atual.GetCarinho()+0.1);
+        atual.SetCarinho(atual.GetCarinho()+0.5);
         carinho.Progress = atual.GetCarinho();
     }
 
     void oservo(object sender,EventArgs args)
     {
-        atual.SetFome(atual.GetFome()+0.1);
+        atual.SetFome(atual.GetFome()+0.5);
         fome.Progress = atual.GetFome();
     }
 
     void aagua(object sender,EventArgs args)
     {
-        atual.SetSede(atual.GetSede()+0.1);
+        atual.SetSede(atual.GetSede()+0.5);
         sede.Progress = atual.GetSede();
     }
 

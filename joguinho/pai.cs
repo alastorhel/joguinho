@@ -37,7 +37,7 @@ public class Pai
      
      public double GetFome()
      {
-        return sede;
+        return fome;
      }
 
 

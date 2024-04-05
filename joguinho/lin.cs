@@ -5,8 +5,8 @@ public class Lin : Pai
   public Lin()
   {
          arquivo = "lin.png";
-         fome = 0;
-         sede = 0;
-        carinho = 0;
+         fome = 1;
+         sede = 1;
+        carinho = 1;
   }
 }
